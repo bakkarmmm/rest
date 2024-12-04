@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap" rel="stylesheet">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            font-family: "Cairo", sans-serif;
+        }
+        .navBar{
+            background-color: rgb(245, 170, 30);
+            width: 100%;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            height: 75px;
+            font-size: 1.1rem;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 3333;  
+            color: white;
+        }
+        .nav-item ul,a{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .nav-item a{
+            flex-direction: column;
+            align-items: center;
+            row-gap: .25rem;
+        }
+        .nav-item ul li{
+            margin: 0 10px 0 10px;
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 5px;
+            font-weight: 700;
+            margin: 0 30px 0 30px;
+        }
+        .nav-item ul li a{
+            text-decoration: none;
+            color: white;
+            margin: 0 10px 0 10px;
+        }
+        .nav-item ul li a::after{
+           content: '';
+           background: white;
+           display: block;
+           width: 0;
+           height: 2px;
+           transform: width 3s;
+        }
+        .nav-item ul li a:hover::after{
+            width: 100%;
+            transition: 1s;
+        }
+        .btn{
+            background-color: rgb(47, 47, 161);
+            color: white;
+            text-decoration: none;
+            padding: 15px;
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: .7rem;
+            margin-top: 20px ;
+            transform: 2s;
+        }
+        .btn:hover{
+            font-size: .8rem;
+            transition: 0.5s;
+        }
+        .bg_blur{
+            width: 100%;
+            height: 100vh;
+            background-image: url(tasty-pizza-near-ingredients.jpg);
+            background-size:cover ;
+            position: fixed;
+            filter: blur(5px);
+            z-index: -1;
+        }
+        .menu-1{
+            
+            
+            z-index: 0;
+            height: 100%;
+        }
+        .menu{
+            
+            width: 100%;
+            text-align: center;
+            margin: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .menu-container{
+            display: flex;
+            flex-direction: column;
+            width: 50%;
+        }
+        .menu-container ul li{
+            display: flex;
+            width: 100%;
+            justify-content: space-around;
+            align-items: center;
+            color: orange;
+            
+        }
+        .menu-container h3{
+            /*background-color: rgb(47, 47, 161)  ;*/
+            border: 1px solid #fff;
+            width: 50%;
+            margin: 10px auto 10px auto;
+            border-radius: 5px;
+            color: orange;
+
+        }
+        .menu-category{
+            border-bottom: 1px solid white;
+            
+        }
+        .menu-category ul{
+            display: flex;
+            color: #fff;
+            list-style: none;
+            justify-content: space-around;
+            align-items: center;
+            overflow-x: auto;
+            overflow-y: hidden;
+            padding: 10px;
+        }
+        .menu-category ul li a{
+            color: #fff;
+            text-decoration: none;
+            padding: 10px;
+        }
+        @media (min-width:709px) {
+            .nav-item ul li img{
+                display: none;
+            }
+            
+        }
+        
+        @media (max-width:1500px) {
+            .navBar{
+                width: 100%;
+                
+            }
+        }
+        @media (max-width:710px) {
+            .menu{
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+            }
+            .menu-1 h1{
+                font-size: 1.2rem;
+                margin: 10px 0px;
+            }
+            .menu-container{
+                width: 100%;
+                font-size: 1.5rem;
+                margin-bottom: 100px;
+                font-weight:bold;
+            }
+            .menu-container ul{
+                
+                
+                border: 1px solid white;
+                
+            }
+            
+        }
+        @media (max-width:389px) {
+            .nav-item ul li{
+                margin: 0;
+            }
+            .nav-item{
+                position: fixed;
+                bottom: 0px;
+                left: 0;
+                width: 100%;
+                z-index: 999;
+                margin: auto;
+                padding-top: 5px;
+                padding-bottom: 5px;
+                height: 4.2rem;
+                background-color: rgb(245, 170, 30);
+                border-radius: 10px 10px 0px 0;
+                font-size: 0.8rem;
+            }
+            
+        }
+        
+        @media (max-width:710px) and (min-width:389px) {
+            .nav-item ul li{
+                margin: 0;
+            }
+            .nav-item{
+                position: fixed;
+                bottom: 0px;
+                left: 0;
+                width: 100%;
+                z-index: 999;
+                margin: auto;
+                padding-top: 5px;
+                padding-bottom: 5px;
+                height: 4.2rem;
+                background-color: rgb(245, 170, 30) ;
+                border-radius: 10px 10px 0px 0;
+            }
+        }
+    </style>
+</head>
+<body dir="rtl">
+    <div class="navBar">
+        <div class="name-res">
+            <h1>مطعم</h1>
+        </div>
+        <div class="nav-item">
+            <ul>
+                <li>
+                    <img src="home-agreement.png" alt="">
+                    <a href="index.html">الرئيسية</a>
+                </li>
+                <li>
+                    <span><img src="menu.png" alt=""></span>
+                    <a href="menu.html">المينيو</a>
+                    
+                </li>
+                <li>
+                    <span><img src="customer-service.png" alt=""></span>
+                    <a href="contact.html">جهات الاتصال</a>
+                    
+                </li>
+                <li>
+                    <span><img src="about.png" alt=""></span>
+                    <a href="info.html">معلومات</a>
+                    
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!-- menu stracture and style-->
+     <div class="menu-1" style="position: absolute;top: 75px;width: 100%;">
+      <div class="bg_blur">
+
+      </div>
+      <div class="menu-category">
+        <ul>
+            <li><a href="#">رز</a></li>
+            <li><a href="#">مقالي</a></li>
+            <li><a href="#">فروج</a></li>
+            <li><a href="#">ايطالي</a></li>
+            <li><a href="#">صيني</a></li>
+            <li><a href="#">رز</a></li>
+            <li><a href="#">رز</a></li>
+            <li><a href="#">تركي</a></li>
+            <li><a href="#">رز</a></li>
+            <li><a href="#">رز</a></li>
+            <li><a href="#">مقطعات</a></li>
+            <li><a href="#">رز</a></li>
+            <li><a href="#">بيض</a></li>
+            <li><a href="#">رز</a></li>
+        </ul>
+      </div>
+        <h1 align="center" style="color: #fff;">انت تشتهي ونحن نقدم ما يكفي</h1>
+        <div class="menu">
+            
+        <div class="menu-container">
+            <h3>سردين</h3>
+            <ul>
+                <li>
+                    <h5>بندورة</h5>
+                    <span>50.000</span>
+                </li>
+                <li>
+                    <h5>بندورة</h5>
+                    <span>50.000</span>
+                </li>
+                <li>
+                    <h5>بندورة</h5>
+                    <span>50.000</span>
+                </li>
+                <li>
+                    <h5>بندورة</h5>
+                    <span>50.000</span>
+                </li>
+            </ul>
+        </div>
+        <div class="menu-container">
+            <h3>سردين</h3>
+            <ul>
+                <li>
+                    <h5>بندورة</h5>
+                    <span>50.000</span>
+                </li>
+                <li>
+                    <h5>بندورة</h5>
+                    <span>50.000</span>
+                </li>
+                <li>
+                    <h5>بندورة</h5>
+                    <span>50.000</span>
+                </li>
+                <li>
+                    <h5>بندورة</h5>
+                    <span>50.000</span>
+                </li>
+            </ul>
+        </div>
+        <div class="menu-container">
+            <h3>سردين</h3>
+            <ul>
+                <li>
+                    <h5>بندورة</h5>
+                    <span>50.000</span>
+                </li>
+                <li>
+                    <h5>بندورة</h5>
+                    <span>50.000</span>
+                </li>
+                <li>
+                    <h5>بندورة</h5>
+                    <span>50.000</span>
+                </li>
+                <li>
+                    <h5>بندورة</h5>
+                    <span>50.000</span>
+                </li>
+            </ul>
+        </div>
+        <div class="menu-container">
+            <h3>سردين</h3>
+            <ul>
+                <li>
+                    <h5>بندورة</h5>
+                    <span>50.000</span>
+                </li>
+                <li>
+                    <h5>بندورة</h5>
+                    <span>50.000</span>
+                </li>
+                <li>
+                    <h5>بندورة</h5>
+                    <span>50.000</span>
+                </li>
+                <li>
+                    <h5>بندورة</h5>
+                    <span>50.000</span>
+                </li>
+            </ul>
+        </div>
+        <div class="menu-container">
+            <h3>سردين</h3>
+            <ul>
+                <li>
+                    <h5>بندورة</h5>
+                    <span>50.000</span>
+                </li>
+                <li>
+                    <h5>بندورة</h5>
+                    <span>50.000</span>
+                </li>
+                <li>
+                    <h5>بندورة</h5>
+                    <span>50.000</span>
+                </li>
+                <li>
+                    <h5>بندورة</h5>
+                    <span>50.000</span>
+                </li>
+            </ul>
+        </div>
+        <div class="menu-container">
+            <h3>سردين</h3>
+            <ul>
+                <li>
+                    <h5>بندورة</h5>
+                    <span>50.000</span>
+                </li>
+                <li>
+                    <h5>بندورة</h5>
+                    <span>50.000</span>
+                </li>
+                <li>
+                    <h5>بندورة</h5>
+                    <span>50.000</span>
+                </li>
+                <li>
+                    <h5>بندورة</h5>
+                    <span>50.000</span>
+                </li>
+            </ul>
+        </div>
+        <div class="menu-container">
+            <h3>سردين</h3>
+            <ul>
+                <li>
+                    <h5>بندورة</h5>
+                    <span>50.000</span>
+                </li>
+                <li>
+                    <h5>بندورة</h5>
+                    <span>50.000</span>
+                </li>
+                <li>
+                    <h5>بندورة</h5>
+                    <span>50.000</span>
+                </li>
+                <li>
+                    <h5>بندورة</h5>
+                    <span>50.000</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+     </div>
+</body>
+</html>

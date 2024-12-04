@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap" rel="stylesheet">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            font-family: "Cairo", sans-serif;
+        }
+        .navBar{
+            background-color: rgb(245, 170, 30) ;
+            width: 100%;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            height: 75px;
+            font-size: 1.1rem;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 3333;  
+            color: white;
+        }
+        .nav-item ul,a{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .nav-item a{
+            flex-direction: column;
+            align-items: center;
+            row-gap: .25rem;
+        }
+        .nav-item ul li{
+            margin: 0 10px 0 10px;
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 5px;
+            font-weight: 700;
+            margin: 0 30px 0 30px;
+        }
+        .nav-item ul li a{
+            text-decoration: none;
+            color: white;
+            margin: 0 10px 0 10px;
+        }
+        .nav-item ul li a::after{
+           content: '';
+           background: white;
+           display: block;
+           width: 0;
+           height: 2px;
+           transform: width 3s;
+        }
+        .nav-item ul li a:hover::after{
+            width: 100%;
+            transition: 1s;
+        }
+        .bg_blur{
+            width: 100%;
+            height: 100vh;
+            background-image: url(tasty-pizza-near-ingredients.jpg);
+            background-size:cover ;
+            position: fixed;
+            filter: blur(5px);
+            z-index: -1;
+        }
+        .menu-1{
+            z-index: 0;
+            height: 100%;
+        }
+        .loaction{
+            margin: auto;
+            border: 1px solid white;
+            width: 30%;
+            height: 400px;
+            margin-top: 30px;
+            border-radius: 5px;
+        }
+        .info{
+            margin-top: 30px;
+            width: 60%;
+            height: 30%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .loac{
+            width: 100%;
+           
+        }
+        iframe{
+            width: 100%;
+            margin: 0;
+        }
+        @media (min-width:709px) {
+            .nav-item ul li img{
+                display: none;
+            }
+            
+        }
+        
+        @media (max-width:1500px) {
+            .navBar{
+                width: 100%;
+                
+            }
+            
+        }
+        @media (max-width:449px) {
+            .loaction{
+                width: 80%;
+                height: 450px;
+                
+            }
+            iframe{
+                height: 150px;
+                position: relative;
+                z-index: 9;
+            }
+        }
+        @media (max-width:912px) and (min-width:450px) {
+            .loaction{
+                width: 60%;
+                height: 550px;
+            }
+            iframe{
+                height: 250px;
+            }
+        }
+        @media (max-width:389px) {
+            .nav-item ul li{
+                margin: 0;
+            }
+            .nav-item{
+                position: fixed;
+                bottom: 0px;
+                left: 0;
+                width: 100%;
+                z-index: 999;
+                margin: auto;
+                padding-top: 5px;
+                padding-bottom: 5px;
+                height: 4.2rem;
+                background-color: rgb(245, 170, 30);
+                border-radius: 10px 10px 0px 0;
+                font-size: 0.8rem;
+            }
+        }
+        
+        @media (max-width:710px) and (min-width:389px) {
+            .nav-item ul li{
+                margin: 0;
+            }
+            .nav-item{
+                position: fixed;
+                bottom: 0px;
+                left: 0;
+                width: 100%;
+                z-index: 999;
+                margin: auto;
+                padding-top: 5px;
+                padding-bottom: 5px;
+                height: 4.2rem;
+                background-color: rgb(245, 170, 30);
+                border-radius: 10px 10px 0px 0;
+            }
+            
+        }
+    </style>
+</head>
+<body dir="rtl">
+    <div class="navBar">
+        <div class="name-res">
+            <h1>مطعم</h1>
+        </div>
+        <div class="nav-item">
+            <ul>
+                <li>
+                    <img src="home-agreement.png" alt="">
+                    <a href="index.html">الرئيسية</a>
+                </li>
+                <li>
+                    <span><img src="menu.png" alt=""></span>
+                    <a href="menu.html">المينيو</a>
+                    
+                </li>
+                <li>
+                    <span><img src="customer-service.png" alt=""></span>
+                    <a href="contact.html">جهات الاتصال</a>
+                    
+                </li>
+                <li>
+                    <span><img src="about.png" alt=""></span>
+                    <a href="info.html">معلومات</a>
+                    
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="menu-1" style="position: absolute;top: 75px;width: 100%;">
+        <div class="bg_blur">
+
+        </div>
+        <div class="loaction" align="center" style="color: white;">
+            <h1>موقعنا : </h1>
+            <div class="info">
+                <img src="marker (1).png">
+                <span>عكار / طريق عام برج العرب</span>
+                <h3>بيت الفروج </h3>
+            </div>
+            <div class="loac">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3287.242383576569!2d36.00389972527992!3d34.52208657298363!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x152221002945d543%3A0xda5403e8abe59b65!2z2YXYt9i52YUg2YjZhdi02KfZiNmKINin2KjZiCDYp9mE2YPYsdmF!5e0!3m2!1sar!2slb!4v1733222532873!5m2!1sar!2slb"  style="border:0;" 
+                allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
