@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap" rel="stylesheet">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            font-family: "Cairo", sans-serif;
+        }
+        .menu-admin{
+            position: fixed;
+            right: 0;
+            background-color: rgb(245, 170, 30);
+            overflow-y: auto;
+            overflow-x: hidden;
+            height: 100vh;
+            width: 20%;
+            display: none;
+        }
+        .menu-admin::-webkit-scrollbar-thumb {
+        background: #b4acac; 
+        }
+        .menu-admin::-webkit-scrollbar{
+            width: 5px;
+        }
+        .menu-admin::-webkit-scrollbar-track {
+            background: rgb(192, 146, 60); 
+        }
+        
+        .menu-admin ul{
+            list-style: none;
+            width: 100%;
+            text-align: center;
+        }
+        .menu-admin ul li{
+            width: 100%;
+            border: 1px solid white;
+            padding: 20px 0 20px 0;
+        }
+        .menu-admin ul li a{
+            text-decoration: none;
+            color: white;
+            
+        }
+        .content{
+            width: 100%;
+        }
+        .content .nav{
+            width: 100%;
+            background-color: rgb(245, 170, 30);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .content .nav a{
+            padding: 10px 10px 0 0;
+        }
+        .content .nav .enter{
+            padding: 10px 10px 0 0;
+        }
+        .allinfo{
+            width: 50%;
+            margin: auto;
+            margin-top: 30px;
+            display: flex;
+            flex-direction: column;
+            height: 300px;
+            justify-content: space-between;
+            background-color: rgb(192, 146, 60);
+            padding: 20px 0;
+            border-radius: 10px;
+        }
+        .allinfo input{
+            height: 50px;
+            width: 50%;
+            align-self: center;
+            border-radius: 10px;
+            border: 0;
+        }
+        .allinfo .alter{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 50%;
+            margin: 0 auto;
+        }
+        .alter input{
+            width: 40%;
+            
+        }
+        @media (max-width:426px) {
+            .menu-admin{
+                width: 60%;
+            }
+            .allinfo{
+                width: 80%;
+            }
+            .allinfo input{
+                width: 80%;
+            }
+            .allinfo .alter{
+                width: 80%;
+                
+            }
+            .allinfo .alter input{
+                margin: 5px;
+            }
+        }
+        @media (max-width:769px) and (min-width:426px) {
+            .menu-admin{
+                width: 40%;
+            }
+            .allinfo{
+                width: 80%;
+            }
+            .allinfo input{
+                width: 80%;
+            }
+            .allinfo .alter{
+                width: 80%;
+                
+            }
+            .allinfo .alter input{
+                margin: 5px;
+            }
+        }
+        
+        @media (max-width:1024px) {
+            
+        }
+    </style>
+    <script>
+        function displaymenu(){
+            document.getElementById('menu-admin').style.display="none";
+            document.getElementById('content').style.right="0px";
+            document.getElementById('content').style.width="100%";
+            document.getElementById('enter').style.display="block";
+            document.getElementById('content').style.opacity="1";
+        }
+        function enter(){
+            document.getElementById('menu-admin').style.display="block";
+            document.getElementById('content').style.width="100%";
+            document.getElementById('content').style.opacity="0.5";
+            
+        }
+        function openalter(){
+            document.getElementById('save').style.display="block";
+           // document.querySelector(".inputt").disabled = false;
+           // change input disable
+            const inputs = document.querySelectorAll('.inputt');
+            inputs.forEach(input => {
+                input.disabled = false ;
+            });
+        }
+        function saveinfo(){
+            document.getElementById('save').style.display="none";
+            const inputs = document.querySelectorAll('.inputt');
+            inputs.forEach(input => {
+                input.disabled = true;
+            });
+        }
+    </script>
+</head>
+<body dir="rtl">
+    <div class="menu-admin" id="menu-admin" >
+        <button style="background-color:transparent ;border: 0;margin-top: 10px;margin-right: 10px;"
+        onclick="displaymenu()"><img src="assetes/images/cross (1).png" ></button>
+        <ul>
+            <li><a href="admin.html">عام</a></li>
+            <li><a href="gatmangment.html">أدارة الأصناف</a></li>
+            <li><a href="mangeplats.html">ادارة الأطباق</a></li>
+            <li><a href="infomangment.html">ادارة معلومات الموقع</a></li>
+        </ul>
+    </div>
+    <div class="content" style="position: fixed;    height: 100vh;z-index: -1;" id="content">
+        <div class="nav" id="nav">
+            <button style="background-color: transparent;border: 0;" 
+            class="enter" id="enter" onclick="enter()">
+                <img src="assetes/images/menu-burger.png" alt=""></button>
+                <a href="admin.html" ><img src="assetes/images/angle-left.png"></a>
+        </div>
+        <div class="allinfo">
+            <input type="text" disabled class="inputt">
+            <input type="text" disabled class="inputt">
+            <input type="text" disabled class="inputt">
+            <input type="text" disabled class="inputt">
+            <div class="alter">
+                <input type="button" value="تعديل" onclick="openalter()">
+                <input type="button" value="حفظ" style="display: none;" id="save" onclick="saveinfo()">
+                
+            </div>
+        </div>
+    </div>
+</body>
+</html>
