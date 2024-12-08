@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>admin</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            font-size: 1.1rem;
+        }
+        .container{
+           
+            width: 100%;
+        }
+        form{
+            width: 50%;
+            
+            height: 350px;
+            margin: auto;
+            margin-top: 100px;
+            border-radius: 10px;
+            padding: 10px;
+            justify-content: space-around;
+        }
+        form .col-1{
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            margin:20px auto ;
+            
+        }
+        form .col-1>label,input{
+            padding: 7px;
+        }
+        form input{
+            border-radius: 5px;
+            border: 0;
+            background-color: transparent;
+            border: 1px solid black;
+        }
+        .submit{
+            border: 0;
+            background-color: rgb(245, 170, 30);
+            
+        }
+        @media (max-width:376px) {
+            form{
+                width: 80%;
+                
+            }
+        }
+        @media (max-width:425px) {
+            form{
+                width: 70%;
+                
+            }
+        }
+    </style>
+</head>
+<body dir="rtl">
+    <div class="container">
+        <form action="" method="post">
+           <h1 align="center" style="font-size: 2rem;">سجل الدخول</h1>
+           <div class="col-1">
+                <label for="username">اسم المستخدم</label>
+                <input type="text" id="username" name="username">   
+            </div>
+            <div class="col-1">
+                <label for="username">كلمة المرور </label>
+                <input type="password" id="username" name="username">   
+            </div>
+            <input type="submit" value="تسجيل الدخول"class="col-1 submit" >
+        </form>
+    </div>
+</body>
+</html>
